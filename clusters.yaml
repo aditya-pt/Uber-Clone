@@ -1,0 +1,7 @@
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: crossfire37-hasura
+  data: null
+  kubeContext: crossfire37
+  name: crossfire37
