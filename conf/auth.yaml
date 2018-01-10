@@ -18,7 +18,7 @@ defaultProviders:
     enabled: "true"
     defaultRoles: []
   email:
-    enabled: "false"
+    enabled: "true"
     defaultRoles: []
   mobile:
     enabled: "false"
