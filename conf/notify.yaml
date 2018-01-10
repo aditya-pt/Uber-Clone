@@ -7,7 +7,7 @@
 
 email:
   # default can take values 'smtp', 'sparkPost' or 'mandrill'
-  default: null
+  default: hasura
   providers:
     hasura:
       authToken:
