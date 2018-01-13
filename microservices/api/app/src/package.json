@@ -1,0 +1,13 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "api getway for uber clone hpdf",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "addypt",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
