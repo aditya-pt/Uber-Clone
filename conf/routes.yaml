@@ -122,14 +122,14 @@
 #       (Advanced) Additional nginx directives that need to go into the
 #       location block
 
-# auth:
-#   /:
-#     upstreamService:
-#       name: auth
-#       namespace: {{ cluster.metadata.namespaces.hasura }}
-#     upstreamServicePath: /
-#     upstreamServicePort: 80
-#     corsPolicy: ['localhost:3000']
+auth:
+  /:
+    upstreamService:
+      name: auth
+      namespace: {{ cluster.metadata.namespaces.hasura }}
+    upstreamServicePath: /
+    upstreamServicePort: 80
+    corsPolicy: ['localhost:3000']
 data:
   /:
     upstreamService:
