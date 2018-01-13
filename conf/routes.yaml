@@ -129,7 +129,7 @@ auth:
       namespace: {{ cluster.metadata.namespaces.hasura }}
     upstreamServicePath: /
     upstreamServicePort: 80
-    corsPolicy: []
+    corsPolicy: ['localhost:3000']
 data:
   /:
     upstreamService:
