@@ -8,6 +8,7 @@
   "author": "addypt",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.1",
     "express": "^4.14.0"
   }
 }
