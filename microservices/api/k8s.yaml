@@ -23,7 +23,7 @@ items:
           imagePullPolicy: IfNotPresent
           name: api
           ports:
-          - containerPort: 8080
+          - containerPort: 3000
             protocol: TCP
           resources: {}
         securityContext: {}
