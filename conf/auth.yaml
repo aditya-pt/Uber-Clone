@@ -21,10 +21,10 @@ defaultProviders:
     enabled: "true"
     defaultRoles: []
   mobile:
-    enabled: "true"
+    enabled: "false"
     defaultRoles: []
   mobile-password:
-    enabled: "false"
+    enabled: "true"
     defaultRoles: []
   google:
     enabled: "false"
