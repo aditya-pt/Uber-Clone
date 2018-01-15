@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
 
 app.post('/signup', jsonParser , function (req, res){
   console.log(req.headers);
-  axios.post('http://auth.crossfire37-hasura/v1/signup', req.body)
+  axios.post('http://auth.crossfire37-hasura/v1/signup', req.body, {headers : req.headers})
         .then((response) => {
           console.log(response);
           res.status(response.status).send(response.data);
