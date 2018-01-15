@@ -52,7 +52,7 @@ app.post('/login', jsonParser , function (req, res){
 
 app.post('/logout', jsonParser , function (req, res){
   console.log(req.body);
-  axios.get('https://auth.crossfire37.hasura-app.io/v1/logout', {headers : req.headers})
+  axios.post('http://auth.crossfire37-hasura/v1/user/logout', req.body, {headers : req.headers})
         .then((response) => {
           console.log(response);
           res.status(response.status).send(response.data);
