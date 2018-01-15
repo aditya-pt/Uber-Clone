@@ -11,14 +11,62 @@ app.get('/', function (req, res) {
 });
 
 app.post('/signup', jsonParser , function (req, res){
-  console.log(req.body);
-  axios.post('https://auth.crossfire37.hasura-app.io', req.body)
+  console.log(req.headers);
+  axios.post('https://auth.crossfire37.hasura-app.io/v1/signup', req.body)
         .then((response) => {
           console.log(response);
-          res.send(response);
+          res.status(response.status).send(response.data);
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error) => {
+          // console.log(err.response);
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            // console.log(error.response.data);
+            // console.log(error.response.status);
+            // console.log(error.response.headers);
+            res.status(error.response.status).send(error.response.data);
+          } 
+        });
+})
+
+app.post('/login', jsonParser , function (req, res){
+  console.log(req.body);
+  axios.post('https://auth.crossfire37.hasura-app.io/v1/login', req.body)
+        .then((response) => {
+          console.log(response);
+          res.status(response.status).send(response.data);
+        })
+        .catch((error) => {
+          // console.log(err.response);
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+            res.status(error.response.status).send(error.response.data);
+          } 
+        });
+})
+
+app.post('/logout', jsonParser , function (req, res){
+  console.log(req.body);
+  axios.post('https://auth.crossfire37.hasura-app.io/v1/logout', req.body)
+        .then((response) => {
+          console.log(response);
+          res.status(response.status).send(response.data);
+        })
+        .catch((error) => {
+          // console.log(err.response);
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+            res.status(error.response.status).send(error.response.data);
+          } 
         });
 })
 
