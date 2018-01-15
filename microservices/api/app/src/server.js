@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
 
 app.post('/signup', jsonParser , function (req, res){
   console.log(req.headers);
-  axios.post('https://auth.crossfire37.hasura-app.io/v1/signup', req.body)
+  axios.post('http://auth.crossfire37-hasura/v1/signup', req.body)
         .then((response) => {
           console.log(response);
           res.status(response.status).send(response.data);
@@ -32,7 +32,7 @@ app.post('/signup', jsonParser , function (req, res){
 
 app.post('/login', jsonParser , function (req, res){
   console.log(req.body);
-  axios.post('https://auth.crossfire37.hasura-app.io/v1/login', req.body)
+  axios.post('http://auth.crossfire37-hasura/v1/login', req.body)
         .then((response) => {
           console.log(response);
           res.status(response.status).send(response.data);
