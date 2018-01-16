@@ -24,3 +24,9 @@ remotes:
         dockerfile: microservices/api/Dockerfile
         path: microservices/api
 
+
+    '{{ cluster.metadata.namespaces.user }}.new':
+      new:
+        dockerfile: microservices/new/Dockerfile
+        path: microservices/new
+
