@@ -11,10 +11,13 @@ app.get('/', function (req, res) {
   res.send("Hello World!");
 });
 
+//User/Driver signup route
 app.post('/signup', jsonParser, auth.signup);
 
+//User/Driver login route
 app.post('/login', jsonParser , auth.login);
 
+//User/Driver logout
 app.post('/logout', jsonParser , auth.logout);
 
 app.listen(3000, function () {

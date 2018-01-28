@@ -1,5 +1,6 @@
 signupURL = 'https://auth.crossfire37.hasura-app.io/v1/signup';
 dataURL = 'https://data.crossfire37.hasura-app.io/v1/query';
+assignRoleURL = 'https://auth.crossfire37.hasura-app.io/v1/admin/user/add-role';
 
 //Header with admin auth token
 dbAuthHeader = {
@@ -14,12 +15,27 @@ authHeader = {
     "Content-Type" : "application/json"
   }
 };
-
 //Create new entry for driver in the Drivers table
 const driverTableEntry = (dataQuery, res, response) => {
   axios.post(dataURL , dataQuery, dbAuthHeader)
   .then((dataResponse) => {
-  res.status(response.status).send(response.data);
+    roleBody = {
+      "hasura_id": response.data.hasura_id,
+      "role": "driver"
+    };
+    //Assign role to the driver
+    axios.post(assignRoleURL, roleBody, dbAuthHeader)
+        .then((roleResponse) => {
+          console.log(roleResponse);
+          response.data.hasura_roles.push("driver");
+          res.status(response.status).send(response.data);
+        })
+        .catch((error) => {
+          if(error.response){
+            res.status(error.response.status).send(error.response.data);
+          }
+        });
+  
   })
   .catch((error) => {
   if(error.response){
