@@ -24,8 +24,7 @@ const findDriver = (pos) => {
   }
   axios.post(dataURL, dataQuery, dbAuthHeader)
   .then((response) => {
-    // console.log(response);
-    if(response.data[0].hasura_id == pos.hasuraId){
+    if(response.data[0] != undefined && response.data[0].hasura_id == pos.hasuraId){
       console.log("----Driver Exist------");
     }
     else{
