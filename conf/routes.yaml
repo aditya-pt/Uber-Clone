@@ -183,3 +183,14 @@ new:
     upstreamServicePort: 80
 
 
+
+loc:
+  /:
+    corsPolicy: allow_all
+    upstreamService:
+      name: loc
+      namespace: '{{ cluster.metadata.namespaces.user }}'
+    upstreamServicePath: /
+    upstreamServicePort: 80
+
+

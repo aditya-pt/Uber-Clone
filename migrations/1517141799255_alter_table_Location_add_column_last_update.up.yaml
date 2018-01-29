@@ -1,0 +1,3 @@
+- args:
+    sql: ALTER TABLE "Location" ADD COLUMN "last_update" integer NUll
+  type: run_sql
