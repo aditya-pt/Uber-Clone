@@ -31,8 +31,8 @@ remotes:
         path: microservices/new
 
 
-    '{{ cluster.metadata.namespaces.user }}.loc':
-      loc:
-        dockerfile: microservices/loc/Dockerfile
-        path: microservices/loc
+    # '{{ cluster.metadata.namespaces.user }}.loc':
+    #   loc:
+    #     dockerfile: microservices/loc/Dockerfile
+    #     path: microservices/loc
 
