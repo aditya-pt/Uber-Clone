@@ -63,7 +63,8 @@ const driverLocCreate = (pos) => {
   })
   .catch((error) => {
   if(error.response){
-    console.log(error.response.data);
+    console.log("Error while creating new DB entry");
+    // console.log(error.response.data);
   }
   });
 }
@@ -92,7 +93,8 @@ const driverLocUpdate = (pos) => {
   })
   .catch((error) => {
   if(error.response){
-    console.log(error.response.data);
+    console.log("Error while updating DB entry");
+    // console.log(error.response.data);
   }
   });
 }
