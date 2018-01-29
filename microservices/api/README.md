@@ -39,6 +39,19 @@ For User Signup
   "lastname": "Smith",
 }
 ```
+Response on successful signup
+```javascript
+{
+    "auth_token": "<user/driver auth token>",
+    "username": "ron",
+    "hasura_id": 1,
+    "hasura_roles": [
+        "user",
+        "driver" //This role is added only to the drivers
+    ]
+}
+```
+
 ### Route /login
 ```json
 {
@@ -49,10 +62,28 @@ For User Signup
   }
 }
 ```
+Response on succesful login
+```javascript
+{
+    "auth_token": "<user/driver auth token>",
+    "username": "ron",
+    "hasura_id": 1,
+    "hasura_roles": [
+        "user",
+        "driver" //This role is added only to the drivers
+    ]
+}
+```
 
 ### Route /logout
 ```json
 {
     "auth_token": "<user/driver authentication token>",
+}
+```
+Response on successful logout
+```json
+{
+    "message": "logged out"
 }
 ```
