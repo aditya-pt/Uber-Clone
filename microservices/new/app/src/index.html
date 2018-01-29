@@ -14,7 +14,7 @@
         longitude : pos.coords.longitude
       }
       socket  = io({
-      query : 'hasuraId='+driverId+'&latitude='+prev.latitude+'&longitude='+prev.longitude
+      query : 'hasuraId='+driverId+'&latitude='+prev.latitude+'&longitude='+prev.longitude+'&timestamp='+pos.timestamp
       });
     });
    

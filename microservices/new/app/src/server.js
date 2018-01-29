@@ -64,7 +64,7 @@ const driverLocCreate = (pos) => {
   .catch((error) => {
   if(error.response){
     console.log("Error while creating new DB entry");
-    // console.log(error.response.data);
+    console.log(error.response.data);
   }
   });
 }

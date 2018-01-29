@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE "Location"("hasura_id" integer NOT NULL, "latitude" numeric
+      NOT NULL, "longitude" numeric NOT NULL, "last_update" timestamptz NOT NULL,
+      PRIMARY KEY ("hasura_id") )
+  type: run_sql
+- args:
+    name: Location
+  type: add_existing_table_or_view
