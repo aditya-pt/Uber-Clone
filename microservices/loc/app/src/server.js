@@ -123,5 +123,5 @@ io.on('connection', function(socket){
   });
     
 http.listen(8081, function () {
-  console.log('Loc microservice active at 3001');
+  console.log('Loc microservice active at 8081');
 });
