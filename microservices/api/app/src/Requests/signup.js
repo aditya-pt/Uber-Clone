@@ -119,6 +119,7 @@ function signup(req, res){
     });
   }
   else{
+    res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({"body" : "User role not valid"}));
   }
 };

@@ -20,6 +20,8 @@ app.post('/login', jsonParser , auth.login);
 //User/Driver logout
 app.post('/logout', jsonParser , auth.logout);
 
+app.post('/getcab', jsonParser, )
+
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
