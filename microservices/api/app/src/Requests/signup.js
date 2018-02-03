@@ -109,6 +109,7 @@ function signup(req, res){
   if(req.body.role == 'user' || req.body.role == 'driver'){
     axios.post(signupURL, req.body.user, authHeader)
     .then((response) => {
+      console.log(response.header);
       if(req.body.role == 'driver'){
         createDriver(req, res, response);
       }

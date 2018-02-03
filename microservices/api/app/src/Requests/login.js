@@ -10,8 +10,8 @@ authHeader = {
 const login = (req,res) => {
   axios.post(loginURL, req.body, authHeader)
       .then((response) => {
-        console.log(response);
-        res.status(response.status).send(response.data);
+        console.log(response.data);
+        res.cookie('auth_token', response.data.auth_token).status(response.status).send(response.data);
       })
       .catch((error) => {
         if (error.response) {
