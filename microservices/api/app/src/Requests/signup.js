@@ -32,6 +32,7 @@ const driverTableEntry = (dataQuery, res, response) => {
         })
         .catch((error) => {
           if(error.response){
+            console.log(error.response.data);
             res.status(error.response.status).send(error.response.data);
           }
         });
@@ -39,6 +40,7 @@ const driverTableEntry = (dataQuery, res, response) => {
   })
   .catch((error) => {
   if(error.response){
+    console.log(error.response.data);
     res.status(error.response.status).send(error.response.data);
   }
   });
@@ -77,6 +79,7 @@ const userTableEntry = (dataQuery, res, response) => {
   })
   .catch((error) => {
   if(error.response){
+    console.log(error.response.data);
     res.status(error.response.status).send(error.response.data);
   }
   });
@@ -102,6 +105,7 @@ const createUser = (req, res, response) => {
 
 //Signup route handeler function
 function signup(req, res){
+  console.log(req.body);
   if(req.body.role == 'user' || req.body.role == 'driver'){
     axios.post(signupURL, req.body.user, authHeader)
     .then((response) => {
