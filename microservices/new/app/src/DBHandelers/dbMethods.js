@@ -13,7 +13,8 @@ const findDriver = (pos) => {
     "args": {
       "table": "location",
       "columns": [
-        "hasura_id"
+        "hasura_id",
+        "last_update"
       ],
       "where": {
         "hasura_id": {
@@ -25,7 +26,12 @@ const findDriver = (pos) => {
   axios.post(dataURL, dataQuery, dbAuthHeader)
   .then((response) => {
     if(response.data[0] != undefined && response.data[0].hasura_id == pos.hasuraId){
-      console.log("----Driver Exist------");
+      if(pos.timestamp == response.data[0].last_update){
+        console.log("----Driver Exist------");
+      }
+      else{
+        driverLocUpdate(pos);
+      }
     }
     else{
       driverLocCreate(pos);
