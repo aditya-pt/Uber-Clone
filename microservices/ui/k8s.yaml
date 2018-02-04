@@ -5,9 +5,9 @@ items:
   metadata:
     creationTimestamp: null
     labels:
-      app: new
+      app: ui
       hasuraService: custom
-    name: new
+    name: ui
     namespace: '{{ cluster.metadata.namespaces.user }}'
   spec:
     replicas: 1
@@ -16,18 +16,12 @@ items:
       metadata:
         creationTimestamp: null
         labels:
-          app: new
+          app: ui
       spec:
         containers:
-        - image: hasura/base-git-image:0.7
+        - image: hasura/hello-world:latest
           imagePullPolicy: IfNotPresent
-          name: new
-          env:
-          - name: DB_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: hasura-secrets
-                key: db.admin.token
+          name: ui
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -40,9 +34,9 @@ items:
   metadata:
     creationTimestamp: null
     labels:
-      app: new
+      app: ui
       hasuraService: custom
-    name: new
+    name: ui
     namespace: '{{ cluster.metadata.namespaces.user }}'
   spec:
     ports:
@@ -50,7 +44,7 @@ items:
       protocol: TCP
       targetPort: 8080
     selector:
-      app: new
+      app: ui
     type: ClusterIP
   status:
     loadBalancer: {}
