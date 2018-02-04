@@ -171,16 +171,30 @@ api:
     upstreamServicePath: /
     upstreamServicePort: 80
 
-
-
-new:
+ui:
   /:
-    corsPolicy: allow_all
+    corsPolicy: null
+    enableAuth: true
+    enableCORS: true
+    enableWebsockets: true
+    locationDirectives: ""
+    restrictToRoles: []
     upstreamService:
-      name: new
+      name: ui
       namespace: '{{ cluster.metadata.namespaces.user }}'
     upstreamServicePath: /
     upstreamServicePort: 80
+
+
+
+# new:
+#   /:
+#     corsPolicy: allow_all
+#     upstreamService:
+#       name: new
+#       namespace: '{{ cluster.metadata.namespaces.user }}'
+#     upstreamServicePath: /
+#     upstreamServicePort: 80
 
 
 
