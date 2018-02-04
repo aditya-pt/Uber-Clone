@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <title>Driver</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.11.1.js"></script> -->
+  <script>
+    var driverId = Math.floor((Math.random() * 1000));
+    var prev;
+    var socket;
+    navigator.geolocation.getCurrentPosition(function (pos){
+      prev = {
+        latitude : pos.coords.latitude,
+        longitude : pos.coords.longitude
+      }
+      socket  = io({
+      query : 'hasuraId='+driverId+'&latitude='+prev.latitude+'&longitude='+prev.longitude+'&timestamp='+pos.timestamp
+      });
+    });
+   
+    
+    function success(pos){
+      // console.log(pos);
+      if(pos.coords.latitude != prev.latitude || pos.coords.longitude != prev.longitude){
+        socket.emit('position', {
+          hasura_id : driverId,
+          latitude : pos.coords.latitude,
+          longitude : pos.coords.longitude,
+          timestamp : pos.timestamp
+        });
+        prev.latitude = pos.coords.latitude;
+        prev.longitude = pos.coords.longitude;
+      }
+    }
+    function error(){
+        alert("Failed to get location data");
+    }
+    var geo_options = {
+        enableHighAccuracy: true, 
+        maximumAge        : 30000, 
+        timeout           : 27000
+    };
+    function getLocaion(){
+        navigator.geolocation.getCurrentPosition(success, error, geo_options);
+    }
+    setInterval(getLocaion, 10000);
+  </script>
+</head>
+<body>
+  <h1>Loc route</h1>
+</body>
+</html>
