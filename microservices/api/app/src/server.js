@@ -48,7 +48,7 @@ io.on('connection', function(socket){
 });
     
 http.listen(3000, function () {
-  console.log('Loc microservice active at 3000');
+  console.log('Backend microservice active at 3000');
 });
 
 // app.listen(3000, function () {
