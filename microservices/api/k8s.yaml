@@ -27,7 +27,7 @@ items:
             valueFrom:
               secretKeyRef:
                 name: hasura-secrets
-                key: postgres.password
+                key: db.admin.token
 
           ports:
           - containerPort: 3000
